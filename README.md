@@ -1,4 +1,6 @@
 # LittleDay
+![little_day_logo](https://github.com/LucasSebrian/LittleDay/assets/40295405/31c017e6-9bdf-4077-8408-1cf71eb35f83)
+
 
 ## Descrição do Projeto
 LittleDay é um aplicativo de diário desenvolvido como parte do projeto final da disciplina Desenvolvimento de Aplicações Multiplataforma utilizando Xamarin. O objetivo do aplicativo é fornecer uma plataforma para que pessoas em tratamento psicológico possam registrar seus sentimentos, pensamentos e experiências diárias, visando promover o bem-estar mental e emocional.
