@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LittleDay.Views.SearchResult"
+             Title="SearchResult"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16, 16, 16, 0"
+            Spacing="10">
+
+            <Image                    
+                Source="little_day_logo.png"
+                HeightRequest="180"
+                Aspect="AspectFit"
+             />
+
+            <Image
+                Margin="0" 
+                Source="{Binding Image}"
+                HeightRequest="180"
+                Aspect="Center"
+             />
+
+            <!-- Resposta da pesquisa -->
+            <Label
+                Margin="0"
+                FontAttributes="Bold"
+                Text="{Binding IntroTitle}"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <!-- Resposta da pesquisa -->
+            <Label
+                Margin="0"
+                FontAttributes="Bold"
+                Text="{Binding Response}"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <!-- Botão de nova consulta -->
+            <Button
+                Margin="50"
+                Text="NOVA CONSULTA"
+                BackgroundColor="#110C44"
+                TextColor="White"
+                CornerRadius="150"
+                HeightRequest="150"
+                WidthRequest="150"
+                HorizontalOptions="Center"
+                Command="{Binding NewSearchCommand}"/>
+
+
+            <!-- Botão de voltar para home-->
+            <Button
+                Text="Voltar Para Home"
+                BackgroundColor="#110C44"
+                TextColor="White"
+                HeightRequest="50"
+                WidthRequest="150"
+                HorizontalOptions="Center"
+                Command="{Binding BackHomeCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
