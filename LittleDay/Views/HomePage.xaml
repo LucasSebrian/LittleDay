@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LittleDay.Views.HomePage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16, 1, 16, 1"
+            Spacing="20">
+
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="220"
+                Aspect="AspectFit"
+             />
+
+            <!-- Botão de nova consulta -->
+
+            <Grid Grid.Column="2">
+                <Button
+                    BackgroundColor="#110C44"
+                    TextColor="White"
+                    CornerRadius="180"
+                    HeightRequest="180"
+                    WidthRequest="180"
+                    Command="{Binding NewWeatherForecastCommand}"
+                    HorizontalOptions="Center" />
+                <Label Style="{StaticResource ButtonLabel}" Text="NOVA&#x0a;CONSULTA" />
+            </Grid>
+
+            <!-- Título da seção Histórico -->
+            <Label
+                Text="Histórico"
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Start"
+                HorizontalOptions="Fill"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <ActivityIndicator Color="#110C44" IsRunning="{Binding IsHistoryLoading}" IsVisible="{Binding IsHistoryLoading}" HorizontalOptions="Center" />
+
+            <CollectionView x:Name="CollectionView">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="5" Margin="0,0,10,0" BackgroundColor="White" Spacing="5" WidthRequest="120">
+                            <Image Source="{Binding Image}" Aspect="AspectFill" />
+                            <Label Text="{Binding IntroTitle}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" TextColor="#110C44" />
+                            <Label Text="{Binding Temperatura}" FontSize="Large" HorizontalTextAlignment="Center"  TextColor="#110C44" />
+                            <Label Text="{Binding DiaDaSemana}" FontSize="Large" HorizontalTextAlignment="Center"   TextColor="#110C44" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

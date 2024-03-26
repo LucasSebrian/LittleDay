@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LittleDay.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LittleDay"
+    xmlns:view="clr-namespace:LittleDay.Views"
+    Title="LittleDay"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.ForegroundColor="#D48541"
+    Shell.BackgroundColor="#110C44"
+    Shell.TitleColor="White"
+    BackgroundColor="#EEFFFF"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#110C44" StatusBarStyle="LightContent" />
+    </Shell.Behaviors>
+
+    <Shell.FlyoutHeader>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" BackgroundColor="#EEFFFF">
+
+            <Frame Grid.Row="0" BorderColor="#FFFFFF" VerticalOptions="Start" HeightRequest="300" HasShadow="False" Margin="0,0,0,30" Padding="0" IsClippedToBounds="True">
+                <Image Source="little_day_logo.png" Aspect="Fill"/>
+            </Frame>
+
+            <Frame Grid.Row="1" Margin="0,-90,0,0" BorderColor="White" HorizontalOptions="Center" WidthRequest="110" HeightRequest="{OnPlatform iOS='110', Android='110'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True">
+                <Image Source="{Binding Picture}" Aspect="AspectFill"/>
+            </Frame>
+
+            <Label Grid.Row="2" Text="{Binding Username}" FontAttributes="Bold" TextColor="#110C44" HorizontalTextAlignment="Center" Margin="0,20,0,20" FontSize="22"/>
+
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent Title="Login" ContentTemplate="{DataTemplate view:LoginPage}" />
+    </ShellItem>
+
+    <FlyoutItem Title="Home" Route="HomePage">
+        <ShellContent Title="Home" Shell.NavBarIsVisible="true" ContentTemplate="{DataTemplate view:HomePage}" />
+    </FlyoutItem>
+
+    <ShellContent Shell.NavBarIsVisible="False" ContentTemplate="{DataTemplate view:SearchResult}" />
+
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout BackgroundColor="#110C44">
+            <BoxView HeightRequest="3" Color="#D48541"></BoxView>
+            <Button Text="Logout" Command="{Binding LogoutClickedCommand}"></Button>
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+
+</Shell>
